@@ -1,4 +1,5 @@
 'use client';
+import Image from 'next/image';
 import Link from 'next/link';
 /* eslint-disable @next/next/no-img-element -- To avoid img element warning */
 import React from 'react';
@@ -14,12 +15,16 @@ interface Card {
 const Card = ({name, price, image, label, link}: Card) => {
   return (
     <div className="flex flex-col w-fit bg-[#141414] bg-opacity-20 backdrop-filter backdrop-blur-sm rounded-xl shadow-md p-6">
-      <img
-        src={image}
+      <Image
+        src={
+          image === ''
+            ? 'https://gateway.pinata.cloud/ipfs/QmUNoWAZh1nS7nqN1n4B56S87hNwmdrcrSf9JZEV4Q69hC'
+            : image
+        }
         alt={name}
-        width={300}
-        height={300}
-        className="object-fill bg-amber-400 rounded-xl"
+        width={200}
+        height={200}
+        className="object-fill bg-amber-400 w-[14rem] h-[14rem] rounded-xl"
       />
       <h2 className="text-xl text-teal-400 font-primary font-medium truncate mt-3">{name}</h2>
       <span className="flex flex-row justify-between items-center">
